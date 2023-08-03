@@ -1,0 +1,88 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;    
+    font-family: "Montserrat", sans-serif;
+}
+
+.container {
+    display: none;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.notify {
+    display: flex;
+    align-items: center;
+    background-color: #292929cc;
+    margin: 20px;
+    border-radius: 3px;
+    padding: 10px;
+    max-width: 600px;
+    animation: slideInFromLeft 0.5s;
+
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutFromLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+
+.keybox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    background-color: white;
+    border-radius: 2px;
+    min-width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.keybox p {
+    margin: 10px;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.info .title {
+    display: flex;
+    align-items: center; 
+    text-align: left; 
+    color: rgb(235, 235, 235); 
+}
+
+
+.info .description {
+    margin-top: 2px;
+    text-align: left;
+    font-size: 13px;
+    color: rgb(221, 221, 221);
+}
+
