@@ -1,3 +1,5 @@
+let audio = null; 
+
 function showNotification(data) {
     let container = document.getElementById('maincontainer');
     container.innerHTML =
@@ -16,13 +18,27 @@ function showNotification(data) {
         </div>`;
 
     container.style.display = 'flex';
+
+    audio = document.createElement('audio');
+    audio.src = 'sound.mp3';
+    audio.volume = 1;
+    audio.autoplay = true;
+    audio.play();
+
+    document.getElementById('notify').appendChild(audio);
 }
 
 function hideNotification() {
     let notify = document.getElementById('notify');
     let container = document.getElementById('maincontainer');
-    notify.style.animation = 'slideOutFromLeft 0.5s';
 
+    if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+        audio = null;
+    }
+
+    notify.style.animation = 'slideOutFromLeft 0.5s';
     notify.addEventListener('animationend', function () {
         notify.parentNode.removeChild(notify);
     });
@@ -34,7 +50,6 @@ window.addEventListener('message', function (event) {
     if (data.type === 'open') {
         showNotification(data.notifyData);
     } else if (data.type === 'close') {
-        hideNotification()
+        hideNotification();
     }
-
 });
