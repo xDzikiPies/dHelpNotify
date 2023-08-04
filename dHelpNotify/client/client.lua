@@ -1,7 +1,7 @@
 local uiOpen = false
 
 HelpNotify = function(data)
-    if data[data.key] == nil or not data[data.key] then return Config.CustomNotify(Config.Lang['NoKey']) end
+    if Config.Keys[data.key] == nil or not Config.Keys[data.key] then return Config.CustomNotify(Config.Lang['NoKey']) end
 
     if uiOpen then return end 
     uiOpen = true 
